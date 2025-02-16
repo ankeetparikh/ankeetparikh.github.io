@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
   <title>Ankeet Parikh</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
   <link rel="icon" type="image/x-icon" href="favicon-32.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+  
+
+  <!-- MathJax -->
   <script>
     MathJax = {
       tex: {
@@ -16,7 +23,18 @@
     };
   </script>
   <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  
+  <!-- Highlight JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+
 </head>
+
+
 <body>
   <div class="container" style="font-family: Georgia;">
     <h1>Ankeet Parikh</h1>
@@ -34,8 +52,7 @@
     <br>
     <br>
 
-<pre style="font-family: Courier;">
-import numpy as np
+<pre style="font-family: Courier;"><code class="python-html">import numpy as np
 def pi(N):
   b = np.zeros(N, dtype=bool)
   b[2:] = True
@@ -44,7 +61,7 @@ def pi(N):
       b[i*i::i] = False
   return np.count_nonzero(b)
 print(pi(10**2))
-</pre>
+</code></pre>
   
   Note that all composite numbers less than $i^2$ have a prime factor less than $i$ so those will have been crossed out in previous iterations. The code uses the handy <i>start:stop:step</i> syntax, as well as scalar assignment to a slice. The runtime complexity of this algorithm is $O(n \log \log n )$. The constant factor appears to be pretty small, probably due to things like NumPy's C-implementation, an efficient memory representation, and various parallelisms. Running this on an Apple M1 Pro with 16GB memory, here are my profiling results:
   \[ \displaystyle
